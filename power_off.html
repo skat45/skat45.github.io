@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Windows 2.X</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="JS\jquery_min.js"></script>
+</head>
+<body style="margin: 0; background-color: rgb(5, 5, 5);">
+<h2 id="label" style="position: absolute; z-index: 2; font-family: 'LUCIDA CONSOLE'; background-color: rgb(5, 5, 5); color: white; cursor: none; text-shadow: 0 0 2.5px black;">Your computer is turned off. Press the Enter key to turn it on.</h2>
+
+<script type="text/javascript">
+	let w = $(window).width();
+	let h = $(window).height();
+
+	function make_new_star() {
+		let rand = parseInt(Math.random() * 1000);
+
+		$('body').append('<div id="star" style="background-color: white; position: absolute; z-index: 1;"></div>');
+		let star = $('#star');
+		star.attr('id', '');
+		if (rand > 800) {
+			star.css('width', '4px');
+			star.css('height', '4px');
+			star.css('border-radius', '1.5px');
+		}
+		else if (rand > 600) {
+			star.css('width', '3px');
+			star.css('height', '3px');
+			star.css('border-radius', '1px');
+		}
+		else if (rand > 400) {
+			star.css('width', '2px');
+			star.css('height', '2px');
+			star.css('border-radius', '0.5px');
+		}
+		else {
+			star.css('width', '1px');
+			star.css('height', '1px');
+		}
+
+		star.css('left', Math.floor(Math.random() * w) - 7);
+		star.css('top', Math.floor(Math.random() * h) - 7);
+
+		setTimeout(make_new_star, rand);
+		setTimeout(function() {
+			star.remove();
+		}, rand + 250000);
+	}
+
+	$('#label').css('top', 'calc(' + h + 'px / 2)');
+	$('#label').css('left', 'calc((' + w + 'px / 2) - (' + $('#label').css('width') +' / 2))');
+
+	$(document).keyup(function(e) {
+		if (e.key === "Enter" || e.keyCode === 13) {
+			$('h2, div').fadeOut(500);
+			setTimeout(function() {
+				window.open("index.html","_self");
+			}, 500);
+		}
+	});
+
+	$('body').append('<div id="wall" style="position: absolute; cursor: none;"></div>');
+	$('#wall').css('height', h);
+	$('#wall').css('width', w);
+
+	setTimeout(make_new_star(), 1000);
+</script>
+</body>
+</html>

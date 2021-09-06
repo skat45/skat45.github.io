@@ -1,0 +1,58 @@
+:root {
+	--calc-result-border-settings: 5% 50%;
+}	
+
+.CalcResultPlace {
+	width: 40%;
+	height: 13.5%;
+	background-color: white;
+	margin-left: 12.5%;
+	margin-top: 3%;
+	border: solid 0.5px black;
+	border-top-left-radius: var(--calc-result-border-settings);
+	border-top-right-radius: var(--calc-result-border-settings);
+	border-bottom-right-radius: var(--calc-result-border-settings);
+	border-bottom-left-radius: var(--calc-result-border-settings);
+	display: flex;
+}
+
+.CalcMIndicator {
+	background-color: black;
+	height: 30%;
+	width: 3.7%;
+	margin-top: 0.75em;
+	margin-left: 4.5%;
+	display: none;
+}
+
+.CalcResult {
+	font-size: 1.1em;
+	line-height: 2;
+	margin-right: 10%;
+	text-align: right;
+	margin-left: auto;
+	
+}
+
+.CalcBtnsTable {
+	width: 100%;
+	margin-top: 4%;
+}
+
+.CalcBtnsTable tr td div {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.CalcBtn {
+	width: 30px;
+	background: #fff;
+	border: solid 0.5px black;
+	text-align: center;
+	line-height: 2.25;
+	font-size: 0.9em;
+	font-weight: bold;
+	border-radius: 25%;
+	margin-bottom: 5px;
+	cursor: pointer;
+}

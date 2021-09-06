@@ -1,0 +1,32 @@
+.Win[program="CLOCK"] .Window .WindowBody {
+	height: calc(100% - var(--panel-height) - 5px);
+	padding: 0;
+}
+
+.Win[program="CLOCK"] .Window .ControlPanel {
+	border-bottom: solid 1.7px black;
+}
+
+.HourBlock {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	background-color: black;
+}
+
+.MinuteBlock {
+	position: absolute;
+	width: 2px;
+	height: 2px;
+	background-color: black;	
+}
+
+img[src="ClockFace.png"] {
+	width: 32px;
+	height: 32px;
+}
+
+.ClockIconCanvas {
+	position: absolute;
+	cursor: pointer;
+}

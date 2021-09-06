@@ -1,0 +1,396 @@
+:root {
+	--panel-height: 20px;
+	--border-settings: solid 1.5px black;
+}
+
+
+html {
+	overflow: hidden;
+}
+
+
+body {
+    background-color: rgb(85, 255, 255);
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'LUCIDA CONSOLE';
+}
+
+@media 	(max-width: 800px){
+	body {
+		background-color: rgb(0, 0, 0);
+	}
+}
+
+.ActiveWindow, .NotActiveWindow {
+	position: absolute;
+    border-image: url(BorderBackground.png) 5% repeat;
+    border-width: 5px;
+    border-style: solid;
+    outline: var(--border-settings);
+    background-color: white;
+}
+
+
+.ActiveWindow[roll="false"], .NotActiveWindow[roll="false"] {
+	border-width: 0;
+}
+
+
+.Window {
+	border: var(--border-settings);
+	height: 100%;
+	overflow-y: hidden;
+}
+
+
+.ActiveWindow .ControlPanel {
+  	background-color: rgb(85, 85, 255);
+}
+
+
+.NotActiveWindow .ControlPanel {
+  	background-color: white;
+}
+
+
+.ControlPanel {
+	cursor: move;
+	display: flex;
+	height: var(--panel-height);
+}
+
+
+.ControlPanel .FuctionBTN {
+  	height: var(--panel-height);
+  	border-right: var(--border-settings);
+  	cursor: pointer;
+}
+
+
+.WindowMoveBTNs {
+	display: flex;
+	margin-right: 0;
+	cursor: pointer;
+}
+
+.movePlace {
+	width: 100%;
+	text-align: center;
+}
+
+.movePlace span {
+	color: white;
+	overflow-x: hidden; 
+	line-height: 1;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: black;
+	display: inline-block;
+	height: var(--panel-height);
+	padding: 0 4px;
+}
+
+
+.RollDownBTN {
+  	height: var(--panel-height);
+  	border-left: var(--border-settings);
+}
+
+
+.Max, .Min {
+  	height: var(--panel-height);
+  	border-left: var(--border-settings);
+}
+
+
+.OptionsPanel {
+	display: flex;
+	border-top: var(--border-settings);
+	border-bottom: var(--border-settings);
+	background-color: rgb(85, 255, 255);
+}
+
+
+.OptionsPanel .Option {
+	padding: 1px 6px;
+	cursor: pointer;
+}
+
+
+.OptionsPanel .Option:active, .WindowMenuOption:active {
+	background-color: rgb(255, 85, 85);
+}
+
+
+.WindowMenu {
+	position: absolute;
+	background-color: rgb(85, 255, 255);
+	width: 200px;
+	border: solid 1.5px black;
+	cursor: default;
+	padding-bottom: 3px;
+}
+
+
+.WindowMenu hr {
+	background: #000;
+	height: 1px;
+	border-width: 0;
+}
+
+
+.WindowMenuOption{
+	cursor: pointer;
+}
+
+
+.WindowMenuOption div{
+	padding: 1px 10px;
+	height: 17px;
+}
+
+.WindowMenuOption[option-available="f"] {
+	color: grey;
+}
+
+
+.WindowMenuActiveOption {
+	background-color: rgb(255, 85, 85);
+	color: white;
+}
+
+
+.WindowBody {
+	background-color: white;
+	padding: 3px 0 0 5px;
+	height: calc(100% - var(--panel-height) - var(--panel-height) - 5px);
+}
+
+.IconPanel {
+	position: fixed;
+	display: flex;
+	left: 0px;
+	bottom: 25px;
+	padding-left: 10px;
+	z-index: -1;
+}
+
+.Icon {
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+#only_border {
+	position: absolute;
+	border-image: url(BorderBackground.png) 5% repeat;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.BorderTop, .BorderBottom {
+	position: absolute;
+	height: 5px;
+	cursor: n-resize;
+}
+
+.BorderLeft, .BorderRight {
+	position: absolute;
+	width: 5px;
+	cursor: e-resize;
+}
+
+
+[roll="false"] .WindowsBorders div {
+	cursor: default;
+}
+
+
+.BlockDiv {
+	position: absolute;
+	background-color: rgba(25,25,25,0.2);
+}
+
+
+.WarningCloseWindow {
+	height: 170px;
+	width: 400px;
+	background-color: white;
+	border: solid 1.5px black;
+	position: absolute;
+}
+
+.CloseH {
+	height: var(--panel-height);
+	width: 100%;
+	background-color: rgb(85, 85, 255);
+	text-align: center;
+	border-bottom: solid 1.5px black;
+}
+
+.CloseH span {
+	background-color: black;
+	color: white;
+	display: inline-block;
+	height: var(--panel-height);
+	padding: 0 4px;
+}
+
+.CloseTextImg {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	padding: 30px;
+}
+
+.CloseTextImg img {
+	margin-left: auto;
+	height: 37px;
+}
+
+.CloseTextImg div {
+	margin-top: 5px;
+	margin-left: 30px;
+	margin-right: auto;
+	word-spacing: 4px;
+	font-size: 1.05em;
+}
+
+#ok_close_btn {
+	margin-left: auto;
+	border: solid 2px black;
+}
+
+#cancel_close_btn {
+	margin-left: 15px;
+	margin-right: auto;
+	border: solid 1.5px black;
+}
+
+#ok_close_btn, #cancel_close_btn {
+	height: 25px;
+	width: 90px;
+	text-align: center;
+	line-height: 1.6;
+	border-radius: 5px;
+}
+
+#ok_close_btn:active, #cancel_close_btn:active {
+	background-color: black;
+	color: white;
+}
+
+
+.ProgMenu {
+	position: absolute;
+	background-color: rgb(85, 255, 255);
+	border: solid 1.5px black;
+	margin-top: calc(var(--panel-height) + 1.8px);
+}
+
+.ProgMenu div:active {
+	background-color: rgb(255, 85, 85);
+}
+
+.ProgMenu {
+	width: 210px;
+	padding-bottom: 3px;
+}
+
+.ProgMenu div {
+	padding: 1px 6px;
+	cursor: pointer;
+}
+
+.ProgMenu hr {
+	border: solid 0.01px black;
+}
+
+.AboutProgWindow {
+	position: absolute;
+	border: solid 1.2px black;
+	background-color: white;
+	padding: 2px;
+	position: absolute;
+	top: 150px;
+	left: 98px;
+}
+
+.AboutProgWindowBody {
+	border: solid 5px rgb(85, 85, 225);
+	padding: 10px 0;
+	width: 400px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.AboutProgWindowBody hr {
+	border: solid 2px black;
+}
+
+.AboutProgWindowBody img {
+	width: 32px;
+	position: absolute;
+	top: calc(10px + 2em);
+	left: 2.5em;
+}
+
+.AboutOKCloseBTN {
+	width: 65px;
+	height: 20px;
+	border-radius: 5px;
+	border: solid 2px black;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 1em;
+}
+
+.AboutOKCloseBTN:active {
+	color: white;
+	background-color: black;
+}
+
+#text_and_btns {
+	display: flex;
+	margin-top: 0.6em;
+}
+
+#text_and_btns input {
+	border-radius: 0;
+	border: solid 2.56px black;
+	height: 22px;
+	width: 55%;
+	font-weight: 700;
+	font-size: 1em;
+	margin-right: auto;
+	margin-left: 0;
+}
+
+#text_and_btns div {
+	width: 33%;
+	margin-right: 0;
+	margin-left: auto;
+}
+
+#text_and_btns div div {
+	width: 70%;
+	height: 27px;
+	border-radius: 5px;
+	border: solid 2px black;
+	margin-bottom: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 80%;
+	line-height: 1.61;
+}
+
+#text_and_btns div div:active {
+	color: white;
+	background-color: black;
+}

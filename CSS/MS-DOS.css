@@ -1,0 +1,46 @@
+.DiskAICON {
+	background-color: black;
+	color: white;
+	width: 60px;
+	padding: 0 0 2px 3px;
+	margin-left: 3px;
+	line-height: 1.25;
+	display: flex;
+}
+
+
+.DiskAICON img {
+	height: var(--panel-height);
+}
+
+
+.Path {
+	margin-left: 10px;
+	margin-right: auto;
+}
+
+
+.FileList {
+	list-style-type: none;
+	margin-top: 1.5px;
+	list-style-position: inside;
+	-moz-column-count: 2; /* Firefox */
+  	-webkit-column-count: 2; /* Safari and Chrome */
+  	column-count: 1;
+}
+
+
+.FileList li {
+	margin-left: -40px;
+	font-size: 0.9rem;
+	width: 120px;
+	cursor: pointer;
+	overflow: hidden;
+	height: calc(var(--panel-height) - 2px);
+}
+
+.FileList li.ActiveFile {
+	background-color: black;
+	color: white;
+	border: dotted 1.5px white;
+}

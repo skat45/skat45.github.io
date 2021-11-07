@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+
+
+<?php
+if(isset($_GET['num'])) {
+    echo $_GET['num'];
+}
+?>
+
+
 <html>
 <head>
 	<title>Windows 2.X</title>

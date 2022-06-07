@@ -1,0 +1,33 @@
+:root {
+	--checked-color:  #8157ff;
+	--outchecked-color:  grey;
+}
+
+.Popit {
+	width: 370px;
+	height: 370px;
+	margin-right: auto;
+	margin-left: auto;
+	background:  red;
+	margin-top: 10px;
+	background-color: rgb(98, 255, 87);
+	border: solid 2px black;
+}
+
+.Popit .Row {
+	width: 100%;
+	padding-top: 11px;
+	display: flex;
+	margin-top: auto;
+}
+
+.Popit .Row div {
+	width: 75px;
+	height:  75px;
+	background:linear-gradient(var(--checked-color), transparent 3px),linear-gradient(90deg,var(--checked-color), transparent 3px);
+  	background-size: 4px 4px;
+  	background-position: center center;
+  	border: 2px solid var(--checked-color);
+  	margin-left: 11px;
+  	cursor: pointer;
+}

@@ -598,6 +598,23 @@ function jquery_links() {
 		});
 	});
 
+	$('.Popit').children('.Row').children('*').off('click');
+	$('.Popit').children('.Row').children('*').click(function() {
+		$(this).css('background', 'white');
+		var is_off = true;
+		$(this).parent('.Row').parent('.Popit').children().children('.One').each(function() {
+			if ($(this).css('background') != 'rgb(255, 255, 255) none repeat scroll 0% 0%') {
+				is_off = false;
+			}
+		});
+		if (is_off) {
+			last_window_position['y'] -= 20;
+			start_program('POPIT');
+			$(this).parents('.Win').remove();
+		}
+	});
+		
+
 	$('.Win').each(function() {
 		let win = $(this);
 		if (win.attr('rolled') == 't') {

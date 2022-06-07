@@ -1,11 +1,11 @@
-let icons = {'MSDOS': 'MS-DOSICON.png', 'CALC': 'CALCICON.png', 'SKAT45': 'SCAT45ICO.png', 'CLOCK': 'ClockFace.png', 'NOTEPAD': 'NOTEPADICO.png'};
-let options_panel = {'MSDOS': {'File': ['Exit', 'About MS-DOS Exec...'], 'Special': ['End session']}, 'CALC': {'Edit': ['Exit', 'About Calculator']}, 'SKAT45': {'VK': '', 'GitHub': '', 'Instagram': ''}, 'CLOCK': [], 'NOTEPAD': {'File': ['New', 'Save', 'Save As...', false, 'Exit', 'About Notepad...'], 'Edit': ['Select all']}};
+let icons = {'MSDOS': 'MS-DOSICON.png', 'POPIT': 'POPITICON.png', 'CALC': 'CALCICON.png', 'SKAT45': 'SCAT45ICO.png', 'CLOCK': 'ClockFace.png', 'NOTEPAD': 'NOTEPADICO.png'};
+let options_panel = {'MSDOS': {'File': ['Exit', 'About MS-DOS Exec...'], 'Special': ['End session']}, 'POPIT': {'File': ['About PopIt']}, 'CALC': {'Edit': ['Exit', 'About Calculator']}, 'SKAT45': {'VK': '', 'GitHub': '', 'Instagram': ''}, 'CLOCK': [], 'NOTEPAD': {'File': ['New', 'Save', 'Save As...', false, 'Exit', 'About Notepad...'], 'Edit': ['Select all']}};
 
 // Ключ - название str, 0 - расширение str, 1 - вес int, 2 - дата создания array [[d int, m int, y int], [h int, m int]]
 // Программа: 3 - возможность полноэкранного использования bool
 // Файл: 3 - содержимое
 let about_text = 'About me:\n\nI live in Russia X_X\n\nMy instruments:\n❖ HTML, SCC, JS\n❖ jQuery, jQuery (cookie)\n❖ Bootstrap\n❖ Python, Flask, Flask_SQLalchemy\n❖ C++ (Arduino IDE)\n\nThis is my 1st big project.\nOther projects you can finde here:\n\ngithub.com/skat45';
-let all_apps_and_fles = {'ABC': ['TXT', 42, [[8, 14, 87], [10, 56]], 'This is the contents of the file ABC.TXT'], 'About': ['TXT', 18650, [[14, 8, 2021], [13, 22]], about_text], 'CALC': ['EXE', 2800, [[11, 12, 87], [13, 21]], false], 'CLOCK': ['EXE', 5, [[11, 12, 87], [13, 21]], true], 'MSDOS': ['EXE', 1, [[10, 30, 87], [18, 12]], true], 'NOTEPAD': ['EXE', 198336, [[11, 12, 1987], [11, 20]], true], 'SKAT45': ['EXE', 2281337, [[10, 11, 2003], [12, 20]], false], 'UNICODE': ['TXT', 56, [[6, 9, 2021], [7, 59]], 'I ▯ unicode']};
+let all_apps_and_fles = {'ABC': ['TXT', 42, [[8, 14, 87], [10, 56]], 'This is the contents of the file ABC.TXT'], 'About': ['TXT', 18650, [[14, 8, 2021], [13, 22]], about_text], 'CALC': ['EXE', 2800, [[11, 12, 87], [13, 21]], false], 'CLOCK': ['EXE', 5, [[11, 12, 87], [13, 21]], true], 'MSDOS': ['EXE', 1, [[10, 30, 87], [18, 12]], true], 'NOTEPAD': ['EXE', 198336, [[11, 12, 1987], [11, 20]], true],'POPIT':['EXE', 0.5, [[6, 6, 2022], [20, 43]], false], 'SKAT45': ['EXE', 2281337, [[10, 11, 2003], [12, 20]], false], 'UNICODE': ['TXT', 56, [[6, 9, 2021], [7, 59]], 'I ▯ unicode']};
 
 function start_program(name, param) {
 	$('body').append('<div id="creating_win"></div>');
@@ -47,6 +47,11 @@ function start_program(name, param) {
 		case 'NOTEPAD':
 			win.css('width', '500px');
 			win.css('height', '650px');
+			break;
+
+		case 'POPIT':
+			win.css('width', '400px');
+			win.css('height', '450px');
 			break;
 	}
 
@@ -93,6 +98,10 @@ function start_program(name, param) {
 
 		case 'NOTEPAD':
 			NOTEPAD_content(win.children('.WindowBody'), param);
+			break;
+
+		case 'POPIT':
+			popit_content(win.children('.WindowBody'));
 			break;
 	}
 
@@ -455,6 +464,11 @@ function NOTEPAD_content(win, text) {
 		win.children('textarea').append(text[1]);
 		win.parents('.Win').attr('file', text[0]);
 	}
+}
+
+function popit_content(win) {
+	win.css('padding', 0);
+	win.append('<div class="Popit"><div class="Row"><div class="One"></div><div class="One"></div><div class="One"></div><div class="One"></div></div><div class="Row"><div class="One"></div><div class="One"></div><div class="One"></div><div class="One"></div></div><div class="Row"><div class="One"></div><div class="One"></div><div class="One"></div><div class="One"></div></div><div class="Row"><div class="One"></div><div class="One"></div><div class="One"></div><div class="One"></div></div></div>');
 }
 
 function prog_menu_option_click(program, option) {

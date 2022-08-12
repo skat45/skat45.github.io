@@ -1,70 +1,10 @@
 let hue = 0;
-let str = '';
-let cursor = false;
 
 $(document).ready(function() {
-	setTimeout(function() {
-		show_hi();
-	}, 500);
-
 	setInterval(function() {
 		age();
 	}, 1);
-
-	$(document).keyup(function(e) {
-
-		let symb = e.key;
-		if ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.includes(symb) && str.length < 20) {
-			symb = symb.toLowerCase();
-			str += symb;
-		}
-
-		if (symb == 'Backspace' && str.length > 0) {
-			str = str.slice(0, -1)
-		}
-
-		if (symb == 'Enter') {
-			alert('ent');
-		}
-
-		if (cursor) {
-			$('#str').html(str + '|');
-		}
-		else {
-			$('#str').html(str);
-		}
-	});
-
-	setInterval(function() {
-		if (cursor) {
-			cursor = false;
-			$('#str').html(str + '|');
-		}
-		else {
-			cursor = true;
-			$('#str').html(str);
-		}
-	}, 500);
 });
-
-function show_hi() {
-	$('#hi').css('display', '');
-	setTimeout(function() {
-		show_about_label();
-	}, 1200);
-}
-
-function show_about_label() {
-	$('#about_label').css('display', '');
-	setTimeout(function() {
-		show_about();
-	}, 1200);
-}
-
-function show_about() {
-	$('#about').css('display', '');
-	$('#inp').focus();
-}
 
 
 function age() {
